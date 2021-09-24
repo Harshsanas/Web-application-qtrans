@@ -2,6 +2,8 @@
 
 <img src="./image1.png" alt="img"/>
 
+<img src="./image2.png" alt="img"/>
+
 # Tech stack
 <p>REACT JS</p>
 <p>EXPRESS JS</p>

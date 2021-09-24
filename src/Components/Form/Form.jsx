@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Slideshow from '../Slideshow/Slideshow';
 const FORMDATA = styled.div`
   text-align: center;
-  padding-top:70px;
+  padding-top:50px;
 
   button {
     background-color: #003e7a;
@@ -197,8 +197,8 @@ export default function Form() {
                   <input type="radio" name="complementary" /> NO
                 </div>
               </div>
-              <input type="text" placeholder="Package Type" />
-              <input type="text" placeholder="Package Type" />
+              <input type="text" placeholder="Type Name" />
+              <input type="text" placeholder="Type Email" />
             </div>
           </div>
           <button>Calculate</button>

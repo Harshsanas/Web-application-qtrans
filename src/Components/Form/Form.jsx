@@ -81,7 +81,7 @@ const FORMDATA = styled.div`
       .form-compliment {
         display: flex;
         width: 50%;
-        margin: 50px auto;
+        margin: 30px auto;
         input {
           margin: 5px;
         }
@@ -116,6 +116,7 @@ const FORMDATA = styled.div`
         select {
           width: 145px;
           background-color: white;
+          cursor: pointer;
           margin: 5px 20px;
           height: 30px;
         }
@@ -133,7 +134,7 @@ export default function Form() {
     return (
       <div>
         <FORMDATA>
-        <Slideshow/>
+          <Slideshow />
           <p>
             <span style={{ fontWeight: 600 }}>Packages</span> | create package
           </p>
@@ -156,29 +157,35 @@ export default function Form() {
                 </div>
                 <div className="form-label-radio">
                   <p>Field of Text</p>
-                  <input type="radio" name="radioText" /> Translation
+                  <input type="radio" name="radioText" /> Genaral Domain
                   <br />
-                  <input type="radio" name="radioText" /> Proofreading
+                  <input type="radio" name="radioText" /> Technician Domain
                   <br />
-                  <input type="radio" name="radioText" /> TEP
+                  <input type="radio" name="radioText" /> Medical Domain
                   <br />
                   <input type="radio" name="radioText" /> OTHERS
                   <br />
                 </div>
               </div>
               <input type="text" placeholder="Package Type" />
-              <input type="text" placeholder="Package Type" />
-              <input type="text" placeholder="Package Type" />
+              <input type="text" placeholder="Type Duration" />
+              <input type="text" placeholder="Discount" />
             </div>
             <div className="form-right">
               <div className="form-select">
                 <div>
-                  <select name="" id=""></select>
-                  <select name="" id=""></select>
+                  <select name="" id="">
+                    <option value="arabic">arabic</option>
+                  </select>
+                  <select name="" id="">
+                    <option value="germany">germany</option>
+                  </select>
                 </div>
                 <div>
                   <button>+Add More</button>
-                  <select name="" id="" style={{ marginLeft: "50px" }}></select>
+                  <select name="" id="" style={{ marginLeft: "50px" }}>
+                    <option value="english">english</option>
+                  </select>
                 </div>
               </div>
               <div className="form-compliment">

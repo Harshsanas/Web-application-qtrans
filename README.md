@@ -2,6 +2,20 @@
 
 <img src="./image1.png" alt="img"/>
 
+# Tech stack
+<p>REACT JS</p>
+<p>EXPRESS JS</p>
+<p>MONGODB</p>
+<p>NODE JS</p>
+
+# to clone this project ==> git clone https://github.com/Harshsanas/Web-application-qtrans.git
+
+# npm i
+
+# cd backend ==> npm i ==> npm run server
+
+# npm start to start frontend 
+
 
 
 # Getting Started with Create React App

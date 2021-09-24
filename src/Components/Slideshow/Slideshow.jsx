@@ -10,7 +10,6 @@ const slideImages = [
 ];
 
 const SLIDESHOW = styled.div`
-
 padding-bottom: 20px;
   .each-slide > div {
     display: flex;
@@ -43,6 +42,9 @@ const Slideshow = () => {
           </div>
           <div className="each-slide">
             <div style={{ backgroundImage: `url(${slideImages[1]})` }}></div>
+          </div>
+          <div className="each-slide">
+            <div style={{ backgroundImage: `url(${slideImages[2]})` }}></div>
           </div>
         </Slide>
       </SLIDESHOW>

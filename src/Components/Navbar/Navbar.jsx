@@ -2,11 +2,29 @@ import React from 'react'
 import {NavLink} from "react-router-dom"
 import styled from "styled-components"
 
-const NAVBAR=styled.div`
+const NAVBAR = styled.div`
 display:flex;
-height:60px;
-border-top:1px solid black;
-`
+padding: 15px;
+width:100%;
+position: fixed;
+
+>div>.nav-left{
+  color:grey;
+  margin-left:20px;
+  text-decoration: none;
+  cursor:pointer;
+}
+.nav-right{
+  margin-left:75%;
+  cursor:pointer;
+
+  .nav-right-icon{
+    color: grey;
+    text-decoration: none;
+  }
+}
+
+`;
 export default function Navbar() {
     return (
       <div>
@@ -22,8 +40,10 @@ export default function Navbar() {
               Reports
             </NavLink>
           </div>
-          <div>
-            <NavLink to="/">Ashraf</NavLink>
+          <div className="nav-right">
+            <NavLink to="/" className="nav-right-icon">
+              Ashraf
+            </NavLink>
           </div>
         </NAVBAR>
       </div>

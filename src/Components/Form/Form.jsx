@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Slideshow from '../Slideshow/Slideshow';
 const FORMDATA = styled.div`
   text-align: center;
   padding-top:70px;
@@ -132,6 +133,7 @@ export default function Form() {
     return (
       <div>
         <FORMDATA>
+        <Slideshow/>
           <p>
             <span style={{ fontWeight: 600 }}>Packages</span> | create package
           </p>

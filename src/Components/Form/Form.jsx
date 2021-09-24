@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+import axios from 'axios'
 import styled from 'styled-components'
 import Slideshow from '../Slideshow/Slideshow';
 const FORMDATA = styled.div`
@@ -131,78 +132,179 @@ const FORMDATA = styled.div`
   }
 `;
 export default function Form() {
+
+  
+  const [form, setForm] = useState({});
+
+  // console.log(form)
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    let payload = {
+      ...form,
+      [name]: value,
+    };
+    setForm(payload);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(form)
+
+    axios
+      .post("http://localhost:3033/form", form)
+      .then((res) => {
+        // console.log(form)
+        console.log(res);
+      })
+      .catch((err) => console.log(err));
+  };
     return (
       <div>
         <FORMDATA>
           <Slideshow />
-          <p>
-            <span style={{ fontWeight: 600 }}>Packages</span> | create package
-          </p>
+          <form onSubmit={handleSubmit}>
+            <p>
+              <span style={{ fontWeight: 600 }}>Packages</span> | create package
+            </p>
 
-          <div className="form-container">
-            <div className="form-left">
-              <div className="form-radio">
-                <div className="form-label-radio">
-                  <p>Package Type</p>
-                  <input type="radio" name="packagetype" />
-                  <span> Translation</span>
-                  <br />
-                  <input type="radio" name="packagetype" />
-                  <span> Proofreading</span>
-                  <br />
-                  <input type="radio" name="packagetype" /> <span> TEP </span>
-                  <br />
-                  <input type="radio" name="packagetype" />
-                  <span> OTHERS </span>
+            <div className="form-container">
+              <div className="form-left">
+                <div className="form-radio">
+                  <div className="form-label-radio">
+                    <p>Package Type</p>
+                    <input
+                      type="radio"
+                      name="packagetype"
+                      onChange={handleChange}
+                    />
+                    <span> Translation</span>
+                    <br />
+                    <input
+                      type="radio"
+                      name="packagetype"
+                      onChange={handleChange}
+                    />
+                    <span> Proofreading</span>
+                    <br />
+                    <input
+                      type="radio"
+                      name="packagetype"
+                      onChange={handleChange}
+                    />
+                    <span> TEP </span>
+                    <br />
+                    <input
+                      type="radio"
+                      name="packagetype"
+                      onChange={handleChange}
+                    />
+                    <span> OTHERS </span>
+                  </div>
+                  <div className="form-label-radio">
+                    <p>Field of Text</p>
+                    <input
+                      type="radio"
+                      name="radioText"
+                      onChange={handleChange}
+                    />
+                    Genaral Domain
+                    <br />
+                    <input
+                      type="radio"
+                      name="radioText"
+                      onChange={handleChange}
+                    />
+                    Technician Domain
+                    <br />
+                    <input
+                      type="radio"
+                      name="radioText"
+                      onChange={handleChange}
+                    />
+                    Medical Domain
+                    <br />
+                    <input
+                      type="radio"
+                      onChange={handleChange}
+                      name="radioText"
+                    />
+                    OTHERS
+                    <br />
+                  </div>
                 </div>
-                <div className="form-label-radio">
-                  <p>Field of Text</p>
-                  <input type="radio" name="radioText" /> Genaral Domain
-                  <br />
-                  <input type="radio" name="radioText" /> Technician Domain
-                  <br />
-                  <input type="radio" name="radioText" /> Medical Domain
-                  <br />
-                  <input type="radio" name="radioText" /> OTHERS
-                  <br />
-                </div>
+                <input
+                  type="text"
+                  placeholder="Package Type"
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Type Duration"
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Discount"
+                  onChange={handleChange}
+                />
               </div>
-              <input type="text" placeholder="Package Type" />
-              <input type="text" placeholder="Type Duration" />
-              <input type="text" placeholder="Discount" />
+              <div className="form-right">
+                <div className="form-select">
+                  <div>
+                    <select name="" id="">
+                      <option value="arabic" onChange={handleChange}>
+                        arabic
+                      </option>
+                    </select>
+                    <select name="" id="">
+                      <option value="germany" onChange={handleChange}>
+                        germany
+                      </option>
+                    </select>
+                  </div>
+                  <div>
+                    <button>+Add More</button>
+                    <select name="" id="" style={{ marginLeft: "50px" }}>
+                      <option value="english" onChange={handleChange}>
+                        english
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div className="form-compliment">
+                  <p>Is Complementary?</p>
+                  <div>
+                    <input
+                      type="radio"
+                      name="complementary"
+                      onChange={handleChange}
+                    />
+                    YES
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="complementary"
+                      onChange={handleChange}
+                    />
+                    NO
+                  </div>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Type Name"
+                  onChange={handleChange}
+                />
+                <input
+                  type="text"
+                  placeholder="Type Email"
+                  onChange={handleChange}
+                />
+              </div>
             </div>
-            <div className="form-right">
-              <div className="form-select">
-                <div>
-                  <select name="" id="">
-                    <option value="arabic">arabic</option>
-                  </select>
-                  <select name="" id="">
-                    <option value="germany">germany</option>
-                  </select>
-                </div>
-                <div>
-                  <button>+Add More</button>
-                  <select name="" id="" style={{ marginLeft: "50px" }}>
-                    <option value="english">english</option>
-                  </select>
-                </div>
-              </div>
-              <div className="form-compliment">
-                <p>Is Complementary?</p>
-                <div>
-                  <input type="radio" name="complementary" /> YES
-                </div>
-                <div>
-                  <input type="radio" name="complementary" /> NO
-                </div>
-              </div>
-              <input type="text" placeholder="Type Name" />
-              <input type="text" placeholder="Type Email" />
-            </div>
-          </div>
-          <button>Calculate</button>
-          <button>Reset</button>
+            <button>Calculate</button>
+            <button>Reset</button>
+          </form>
           <hr />
           <div className="footer">
             <p>TransPack</p>

@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 const FORMDATA = styled.div`
   text-align: center;
+  padding-top:70px;
 
   button {
     background-color: #003e7a;
@@ -21,20 +22,20 @@ const FORMDATA = styled.div`
   }
 
   .form-container {
+    padding: 30px;
     margin: 20px auto;
     border: 2px solid black;
-    width: 90%;
+    width: 85%;
     justify-content: space-evenly;
     border-radius: 4px;
     display: grid;
     grid-template-columns: 40% 40%;
 
     p {
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .form-left {
-      border: 2px solid black;
       width: 90%;
       margin: 20px auto;
 
@@ -49,6 +50,14 @@ const FORMDATA = styled.div`
           width: 10px;
           background-color: white;
           margin-top: 5px;
+        }
+
+        span{
+          font-size: 14px;
+        }
+
+        .form-label-radio {
+          text-align: left;
         }
       }
 
@@ -65,17 +74,22 @@ const FORMDATA = styled.div`
     }
 
     .form-right {
-      border: 2px solid black;
       width: 90%;
       margin: 20px auto;
 
-      .form-compliment{
-          border: 2px solid black;
-          input{
-              margin: 5px;
-          }
-      } 
-      
+      .form-compliment {
+        display: flex;
+        width: 50%;
+        margin: 50px auto;
+        input {
+          margin: 5px;
+        }
+
+        > div {
+          display: flex;
+        }
+      }
+
       input {
         width: 95%;
         border: 1px solid grey;
@@ -99,12 +113,19 @@ const FORMDATA = styled.div`
           width: 140px;
         }
         select {
-          width: 140px;
+          width: 145px;
+          background-color: white;
           margin: 5px 20px;
           height: 30px;
         }
       }
     }
+  }
+
+  .footer {
+    color: grey;
+    font-size: 12px;
+    font-weight: 600;
   }
 `;
 export default function Form() {
@@ -118,21 +139,20 @@ export default function Form() {
           <div className="form-container">
             <div className="form-left">
               <div className="form-radio">
-                <div>
+                <div className="form-label-radio">
                   <p>Package Type</p>
                   <input type="radio" name="packagetype" />
-                  Translation
+                  <span> Translation</span>
                   <br />
                   <input type="radio" name="packagetype" />
-                  Proofreading
+                  <span> Proofreading</span>
                   <br />
-                  <input type="radio" name="packagetype" /> TEP
+                  <input type="radio" name="packagetype" /> <span> TEP </span>
                   <br />
                   <input type="radio" name="packagetype" />
-                  OTHERS
-                  <br />
+                  <span> OTHERS </span>
                 </div>
-                <div>
+                <div className="form-label-radio">
                   <p>Field of Text</p>
                   <input type="radio" name="radioText" /> Translation
                   <br />
@@ -161,7 +181,12 @@ export default function Form() {
               </div>
               <div className="form-compliment">
                 <p>Is Complementary?</p>
-                <input type="radio" name="complementary" /> <input type="radio" name="complementary" />
+                <div>
+                  <input type="radio" name="complementary" /> YES
+                </div>
+                <div>
+                  <input type="radio" name="complementary" /> NO
+                </div>
               </div>
               <input type="text" placeholder="Package Type" />
               <input type="text" placeholder="Package Type" />
@@ -170,6 +195,10 @@ export default function Form() {
           <button>Calculate</button>
           <button>Reset</button>
           <hr />
+          <div className="footer">
+            <p>TransPack</p>
+            <p>Copyright © 2021 All Rights Reserved</p>
+          </div>
         </FORMDATA>
       </div>
     );
